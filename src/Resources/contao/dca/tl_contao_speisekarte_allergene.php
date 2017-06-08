@@ -44,32 +44,26 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_allergene'] = array
         'operations' => array
         (
             'edit' => array(
-                'label'               => &$GLOBALS['TL_LANG']['tl_contao_slick']['edit'],
-                'href'                => 'table=tl_contao_speisekarte_speisen',
-                'icon' => 'edit.svg'
-            ),
-            'editheader' => array
-            (
-                'label'               => &$GLOBALS['TL_LANG']['tl_contao_slick']['editheader'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_allergene']['edit'],
                 'href'                => 'act=edit',
-                'icon'                => 'header.gif'
+                'icon' => 'edit.svg'
             ),
             'copy' => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_contao_slick']['copy'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_allergene']['copy'],
                 'href'                => 'act=copy',
                 'icon'                => 'copy.gif'
             ),
             'delete' => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_contao_slick']['delete'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_allergene']['delete'],
                 'href'                => 'act=delete',
                 'icon'                => 'delete.gif',
                 'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"'
             ),
             'show' => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_contao_slick']['show'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_allergene']['show'],
                 'href'                => 'act=show',
                 'icon'                => 'show.gif'
             )
@@ -114,7 +108,7 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_allergene'] = array
         ),
         'title' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_contao_slick']['title'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_allergene']['title'],
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array('mandatory'=>true, 'maxlength'=>255),

@@ -45,26 +45,26 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
         'operations' => array
         (
             'edit' => array(
-                'label'               => &$GLOBALS['TL_LANG']['tl_contao_slick']['edit'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['edit'],
                 'href'                => 'act=edit',
                 'icon' => 'edit.svg'
             ),
             'copy' => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_contao_slick']['copy'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['copy'],
                 'href'                => 'act=copy',
                 'icon'                => 'copy.gif'
             ),
             'delete' => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_contao_slick']['delete'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['delete'],
                 'href'                => 'act=delete',
                 'icon'                => 'delete.gif',
                 'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"'
             ),
             'show' => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_contao_slick']['show'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['show'],
                 'href'                => 'act=show',
                 'icon'                => 'show.gif'
             )
@@ -87,7 +87,7 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
     'palettes' => array
     (
         '__selector__'                => array(''),
-        'default'                     => '{title_legend},number,title,description,price;'
+        'default'                     => '{title_legend},number,title,description,price,zusatzstoffe,allergene;'
     ),
 
     // Subpalettes
@@ -113,7 +113,7 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
         ),
         'number' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_contao_slick']['title'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['number'],
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array(
@@ -124,7 +124,7 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
         ),
         'title' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_contao_slick']['title'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['title'],
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array('mandatory'=>true, 'maxlength'=>255),
@@ -132,17 +132,16 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
         ),
         'description' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_contao_slick']['title'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['description'],
             'exclude'                 => true,
             'inputType'               => 'textarea',
             'eval'                    => array(
-                'mandatory'=>false,
-                'maxlength'=>255
+                'mandatory'=>false
             ),
-            'sql'                     => "text NOT NULL"
+            'sql'                     => "text NULL"
         ),
         'price' => array(
-            'label'                   => &$GLOBALS['TL_LANG']['tl_contao_slick']['title'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['price'],
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array(
@@ -151,7 +150,32 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
                 'rgxp' => 'digit'
             ),
             'sql'                     => "varchar(255) NOT NULL default ''"
+        ),
+        'zusatzstoffe' => array(
+            'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['zusatzstoffe'],
+            'exclude'                 => true,
+            'inputType'               => 'checkboxWizard',
+            'options_callback'        => function() {
+                return \Contao\System::getContainer()->get('contao_speisekarte.zusatzstoffe')->getZusatzstoffe();
+            },
+            'eval'                    => array(
+                'multiple'=>true
+            ),
+            'sql'                     => "text NULL"
+            //'sql'                     => "varchar(255) NOT NULL default ''"
+        ),
+        'allergene' => array(
+            'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['allergene'],
+            'exclude'                 => true,
+            'inputType'               => 'checkboxWizard',
+            'options_callback'        => function() {
+                return \Contao\System::getContainer()->get('contao_speisekarte.allergene')->getAllergene();
+            },
+            'eval'                    => array(
+                'multiple'=>true
+            ),
+            'sql'                     => "text NULL"
+            //'sql'                     => "varchar(255) NOT NULL default ''"
         )
-
     )
 );

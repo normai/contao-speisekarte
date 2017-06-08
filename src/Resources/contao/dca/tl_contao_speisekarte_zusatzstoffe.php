@@ -44,32 +44,26 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_zusatzstoffe'] = array
         'operations' => array
         (
             'edit' => array(
-                'label'               => &$GLOBALS['TL_LANG']['tl_contao_slick']['edit'],
-                'href'                => 'table=tl_contao_speisekarte_speisen',
-                'icon' => 'edit.svg'
-            ),
-            'editheader' => array
-            (
-                'label'               => &$GLOBALS['TL_LANG']['tl_contao_slick']['editheader'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_zusatzstoffe']['edit'],
                 'href'                => 'act=edit',
-                'icon'                => 'header.gif'
+                'icon' => 'edit.svg'
             ),
             'copy' => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_contao_slick']['copy'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_zusatzstoffe']['copy'],
                 'href'                => 'act=copy',
                 'icon'                => 'copy.gif'
             ),
             'delete' => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_contao_slick']['delete'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_zusatzstoffe']['delete'],
                 'href'                => 'act=delete',
                 'icon'                => 'delete.gif',
                 'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"'
             ),
             'show' => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_contao_slick']['show'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_zusatzstoffe']['show'],
                 'href'                => 'act=show',
                 'icon'                => 'show.gif'
             )
@@ -114,7 +108,7 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_zusatzstoffe'] = array
         ),
         'title' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_contao_slick']['title'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_zusatzstoffe']['title'],
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array('mandatory'=>true, 'maxlength'=>255),
@@ -122,10 +116,14 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_zusatzstoffe'] = array
         ),
         'kuerzel' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_contao_slick']['title'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_zusatzstoffe']['kuerzel'],
             'exclude'                 => true,
             'inputType'               => 'text',
-            'eval'                    => array('mandatory'=>true, 'maxlength'=>10),
+            'eval'                    => array(
+                'mandatory'=>true,
+                'maxlength'=>10,
+                'unique' => true
+            ),
             'sql'                     => "varchar(255) NOT NULL default ''"
         )
     )

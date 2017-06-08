@@ -1,0 +1,5 @@
+services:
+    contao_speisekarte.zusatzstoffe:
+        class: LinkingYou\ContaoSpeisekarte\DataContainer\Zusatzstoffe
+    contao_speisekarte.allergene:
+        class: LinkingYou\ContaoSpeisekarte\DataContainer\Allergene

@@ -12,21 +12,26 @@
 * Backend modules
 */
 $GLOBALS['BE_MOD']['contao_speisekarte'] = array(
-    'speisen' => array(
+    'contao_speisekarte_speisen' => array(
         'tables'       => array(
             'tl_contao_speisekarte_kategorien',
             'tl_contao_speisekarte_speisen'
         )
     ),
-    'zusatzstoffe' => array(
+    'contao_speisekarte_zusatzstoffe' => array(
         'tables' => array(
             'tl_contao_speisekarte_zusatzstoffe'
         )
     ),
-    'allergene' => array(
+    'contao_speisekarte_allergene' => array(
         'tables' => array(
             'tl_contao_speisekarte_allergene'
         )
     )
 );
+
+/* Models */
+$GLOBALS['TL_MODELS']['tl_contao_speisekarte_speisen'] = 'LinkingYou\\ContaoSpeisekarte\\Model\\ContaoSpeisekarteSpeisenModel';
+$GLOBALS['TL_MODELS']['tl_contao_speisekarte_zusatzstoffe'] = 'LinkingYou\\ContaoSpeisekarte\\Model\\ContaoSpeisekarteZusatzstoffeModel';
+$GLOBALS['TL_MODELS']['tl_contao_speisekarte_allergene'] = 'LinkingYou\\ContaoSpeisekarte\\Model\\ContaoSpeisekarteAllergeneModel';
 
