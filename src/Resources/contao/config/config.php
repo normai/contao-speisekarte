@@ -34,4 +34,10 @@ $GLOBALS['BE_MOD']['contao_speisekarte'] = array(
 $GLOBALS['TL_MODELS']['tl_contao_speisekarte_speisen'] = 'LinkingYou\\ContaoSpeisekarte\\Model\\ContaoSpeisekarteSpeisenModel';
 $GLOBALS['TL_MODELS']['tl_contao_speisekarte_zusatzstoffe'] = 'LinkingYou\\ContaoSpeisekarte\\Model\\ContaoSpeisekarteZusatzstoffeModel';
 $GLOBALS['TL_MODELS']['tl_contao_speisekarte_allergene'] = 'LinkingYou\\ContaoSpeisekarte\\Model\\ContaoSpeisekarteAllergeneModel';
+$GLOBALS['TL_MODELS']['tl_contao_speisekarte_kategorien'] = 'LinkingYou\\ContaoSpeisekarte\\Model\\ContaoSpeisekarteKategorienModel';
+
+/*
+ * Frontend modules
+ */
+$GLOBALS['FE_MOD']['contao_speisekarte']['contao_speisekarte_speisekarte'] ='LinkingYou\\ContaoSpeisekarte\\Module\\ModuleContaoSpeisekarte';
 

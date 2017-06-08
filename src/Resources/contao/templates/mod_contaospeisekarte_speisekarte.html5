@@ -1,0 +1,25 @@
+
+<?php if ($this->headline): ?>
+    <<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
+<?php endif; ?>
+
+<?php if ($this->speisekarte): ?>
+    <?php foreach ($this->speisekarte as $kategorie): ?>
+        <h2><?= $kategorie['kategorie'] ?></h2>
+        <table>
+            <tbody>
+            <?php foreach ($kategorie['speisen'] as $speise): ?>
+                <tr>
+                    <td><?= $speise->number ?></td>
+                    <td><?= $speise->title ?></td>
+                    <td><?= $speise->price ?></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="2"><?= $speise->description ?></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php endforeach; ?>
+<?php endif; ?>
