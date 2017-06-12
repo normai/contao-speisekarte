@@ -1,3 +1,8 @@
+<?php
+$GLOBALS['TL_CSS'][] = 'bundles/contaospeisekarte/speisekarte.scss|static';
+?>
+
+<div class="contao_speisekarte">
 
 <?php if ($this->headline): ?>
     <<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
@@ -10,16 +15,18 @@
             <tbody>
             <?php foreach ($kategorie['speisen'] as $speise): ?>
                 <tr>
-                    <td><?= $speise->number ?></td>
-                    <td><?= $speise->title ?></td>
-                    <td><?= $speise->price ?></td>
+                    <td class="contao_speisekarte_number"><?= $speise->number ?></td>
+                    <td class="contao_speisekarte_title"><?= $speise->title ?></td>
+                    <td class="contao_speisekarte_price"><?= $speise->price ?></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td colspan="2"><?= $speise->description ?></td>
+                    <td colspan="2" class="contao_speisekarte_description"><?= $speise->description ?></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
         </table>
     <?php endforeach; ?>
 <?php endif; ?>
+
+</div>
