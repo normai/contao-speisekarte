@@ -1,0 +1,25 @@
+
+.contao_speisekarte{
+    h2 {
+        background-color: #ABB2BE !important;
+        padding: 6px;
+    }
+
+    table {
+        width: 90%;
+        margin: 0 auto;
+
+        .contao_speisekarte_preis {
+            width: 200px;
+        }
+
+        .contao_speisekarte_titel {
+            font-weight: bold;
+        }
+
+        .contao_speisekarte_beschreibung {
+            padding-bottom: 15px;
+        }
+    }
+
+}

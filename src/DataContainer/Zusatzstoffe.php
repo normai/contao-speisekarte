@@ -13,7 +13,7 @@ class Zusatzstoffe {
 
         $result = array();
         foreach ($zusatzstoffe as $zusatzstoff) {
-            $result[] = $zusatzstoff->kuerzel . ' ' . $zusatzstoff->title;
+            $result[$zusatzstoff->id] = $zusatzstoff->kuerzel . ' ' . $zusatzstoff->titel;
         }
         return $result;
     }

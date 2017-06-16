@@ -1,7 +1,7 @@
 <?php
 
-$GLOBALS['TL_LANG']['tl_contao_speisekarte_zusatzstoffe']['title'] = array('Bezeichnung', '');
-$GLOBALS['TL_LANG']['tl_contao_speisekarte_zusatzstoffe']['title_legend'] = 'Zusatzstoff';
+$GLOBALS['TL_LANG']['tl_contao_speisekarte_zusatzstoffe']['titel'] = array('Bezeichnung', '');
+$GLOBALS['TL_LANG']['tl_contao_speisekarte_zusatzstoffe']['titel_legend'] = 'Zusatzstoff';
 $GLOBALS['TL_LANG']['tl_contao_speisekarte_zusatzstoffe']['kuerzel'] = array('Kürzel', 'Kürzel für Legende');
 
 $GLOBALS['TL_LANG']['tl_contao_speisekarte_zusatzstoffe']['edit'] = array('Zusatzstoff bearbeiten','Zusatzstoff ID %s bearbeiten');

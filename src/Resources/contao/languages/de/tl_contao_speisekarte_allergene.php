@@ -1,7 +1,7 @@
 <?php
 
-$GLOBALS['TL_LANG']['tl_contao_speisekarte_allergene']['title'] = array('Bezeichnung', '');
-$GLOBALS['TL_LANG']['tl_contao_speisekarte_allergene']['title_legend'] = 'Allergen';
+$GLOBALS['TL_LANG']['tl_contao_speisekarte_allergene']['titel'] = array('Bezeichnung', '');
+$GLOBALS['TL_LANG']['tl_contao_speisekarte_allergene']['titel_legend'] = 'Allergen';
 
 $GLOBALS['TL_LANG']['tl_contao_speisekarte_allergene']['edit'] = array('Allergen bearbeiten','Allergen ID %s bearbeiten');
 $GLOBALS['TL_LANG']['tl_contao_speisekarte_allergene']['new'] = array('Allergen anlegen','Neues Allergen anlegen');

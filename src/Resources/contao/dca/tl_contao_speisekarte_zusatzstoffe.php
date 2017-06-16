@@ -23,12 +23,12 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_zusatzstoffe'] = array
         'sorting' => array
         (
             'mode'                    => 1,
-            'fields'                  => array('title'),
+            'fields'                  => array('titel'),
             'flag'                    => 1,
             'panelLayout'             => 'search,limit'
         ),
         'label' => array
-        (            'fields'                  => array('title'),
+        (            'fields'                  => array('titel'),
             'format'                  => '%s'
         ),
         'global_operations' => array
@@ -86,7 +86,7 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_zusatzstoffe'] = array
     'palettes' => array
     (
         '__selector__'                => array(''),
-        'default'                     => '{title_legend},kuerzel,title;'
+        'default'                     => '{titel_legend},kuerzel,titel;'
     ),
 
     // Subpalettes
@@ -106,9 +106,9 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_zusatzstoffe'] = array
         (
             'sql'                     => "int(10) unsigned NOT NULL default '0'"
         ),
-        'title' => array
+        'titel' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_zusatzstoffe']['title'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_zusatzstoffe']['titel'],
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array('mandatory'=>true, 'maxlength'=>255),

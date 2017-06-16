@@ -21,17 +21,36 @@ class ModuleContaoSpeisekarte extends Module {
 
         if ($this->contaospeisekarte_kategorien) {
 
-            $kategorien = ContaoSpeisekarteKategorienModel::findMultipleByIds(unserialize($this->contaospeisekarte_kategorien));
+            $kategorienObjekt = ContaoSpeisekarteKategorienModel::findMultipleByIds(unserialize($this->contaospeisekarte_kategorien));
 
-            foreach($kategorien as $kategorie) {
+            foreach($kategorienObjekt as $kategorie) {
 
                 $liste = array();
-                $liste['kategorie'] = $kategorie->title;
+                $liste['kategorie'] = $kategorie->titel;
 
-                $speisen = ContaoSpeisekarteSpeisenModel::findBy(
+                $speisenObjekt = ContaoSpeisekarteSpeisenModel::findBy(
                     'pid',
                     $kategorie->id
                 );
+
+                $speisen = array();
+                foreach ($speisenObjekt as $item) {
+                    $speise = array();
+                    $speise["titel"] = $item->titel;
+                    if ($item->preis) {
+                        $speise["preis"] = number_format($item->preis,2,',','.');
+                    } else {
+                        $speise["preis"] = null;
+                    }
+                    $speise["beschreibung"] = $item->beschreibung;
+
+                    if ($item->zusatzstoffe) {
+                        var_dump(($item->zusatzstoffe));
+                    }
+
+                    $speisen[] = $speise;
+                }
+
                 $liste['speisen'] = $speisen;
 
                 $speisekarte[] = $liste;
