@@ -13,9 +13,28 @@ class Zusatzstoffe {
 
         $result = array();
         foreach ($zusatzstoffe as $zusatzstoff) {
-            $result[$zusatzstoff->id] = $zusatzstoff->kuerzel . ' ' . $zusatzstoff->titel;
+            $result[$zusatzstoff->id] = '(' . $zusatzstoff->kuerzel . ') ' . $zusatzstoff->titel;
         }
         return $result;
     }
+
+    public function getZusatzstofftitelById($id) {
+        $zusatzstoff = ContaoSpeisekarteZusatzstoffeModel::findOneBy('id', $id);
+        if ($zusatzstoff) {
+            return $zusatzstoff->titel;
+        } else {
+            return null;
+        }
+    }
+
+    public function getZusatzstoffkuerzelById($id) {
+        $zusatzstoff = ContaoSpeisekarteZusatzstoffeModel::findOneBy('id', $id);
+        if ($zusatzstoff) {
+            return $zusatzstoff->kuerzel;
+        } else {
+            return null;
+        }
+    }
+
 
 }

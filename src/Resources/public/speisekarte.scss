@@ -10,7 +10,13 @@
         margin: 0 auto;
 
         .contao_speisekarte_preis {
-            width: 200px;
+            width: 10%;
+            text-align: right;
+        }
+
+        .contao_speisekarte_menge {
+            width: 10%;
+            text-align: right;
         }
 
         .contao_speisekarte_titel {
@@ -19,7 +25,15 @@
 
         .contao_speisekarte_beschreibung {
             padding-bottom: 15px;
+            font-weight: normal;
+        }
+
+        .contao_speisekarte_grundpreis {
+            text-align: right;
+            width: 10%;
+            font-size: 0.7em;
         }
     }
 
+    margin-bottom: 15px;
 }

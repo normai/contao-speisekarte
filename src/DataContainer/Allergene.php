@@ -13,9 +13,27 @@ class Allergene {
 
         $result = array();
         foreach ($allergene as $allergen) {
-            $result[] = $allergen->title;
+            $result[$allergen->id] = $allergen->titel;
         }
         return $result;
+    }
+
+    public function getAllergentitelById($id) {
+        $zusatzstoff = ContaoSpeisekarteAllergeneModel::findOneBy('id', $id);
+        if ($zusatzstoff) {
+            return $zusatzstoff->titel;
+        } else {
+            return null;
+        }
+    }
+
+    public function getAllergenkuerzelById($id) {
+        $zusatzstoff = ContaoSpeisekarteAllergeneModel::findOneBy('id', $id);
+        if ($zusatzstoff) {
+            return $zusatzstoff->kuerzel;
+        } else {
+            return null;
+        }
     }
 
 }

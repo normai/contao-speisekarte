@@ -86,7 +86,7 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_allergene'] = array
     'palettes' => array
     (
         '__selector__'                => array(''),
-        'default'                     => '{titel_legend},titel;'
+        'default'                     => '{titel_legend},kuerzel,titel;'
     ),
 
     // Subpalettes
@@ -112,6 +112,18 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_allergene'] = array
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array('mandatory'=>true, 'maxlength'=>255),
+            'sql'                     => "varchar(255) NOT NULL default ''"
+        ),
+        'kuerzel' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_allergene']['kuerzel'],
+            'exclude'                 => true,
+            'inputType'               => 'text',
+            'eval'                    => array(
+                'mandatory'=>true,
+                'maxlength'=>10,
+                'unique' => true
+            ),
             'sql'                     => "varchar(255) NOT NULL default ''"
         )
     )
