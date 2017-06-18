@@ -3,20 +3,23 @@
     h2 {
         background-color: #ABB2BE !important;
         padding: 6px;
+        line-height: 1.1em;
     }
 
     table {
-        width: 90%;
+        width: 100%;
         margin: 0 auto;
 
         .contao_speisekarte_preis {
             width: 10%;
             text-align: right;
+            white-space: nowrap;
         }
 
         .contao_speisekarte_menge {
             width: 10%;
             text-align: right;
+            white-space: nowrap;
         }
 
         .contao_speisekarte_titel {
@@ -32,6 +35,11 @@
             text-align: right;
             width: 10%;
             font-size: 0.7em;
+            white-space: nowrap;
+        }
+
+        td {
+            padding-bottom: 10px;
         }
     }
 
