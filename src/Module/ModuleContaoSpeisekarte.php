@@ -3,6 +3,8 @@
 namespace LinkingYou\ContaoSpeisekarte\Module;
 
 use Contao\Module;
+use LinkingYou\ContaoSpeisekarte\DataContainer\Allergene;
+use LinkingYou\ContaoSpeisekarte\DataContainer\Zusatzstoffe;
 use LinkingYou\ContaoSpeisekarte\Model\ContaoSpeisekarteKategorienModel;
 use LinkingYou\ContaoSpeisekarte\Model\ContaoSpeisekarteSpeisenModel;
 

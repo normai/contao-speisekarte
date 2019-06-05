@@ -1,5 +1,7 @@
 services:
     contao_speisekarte.zusatzstoffe:
         class: LinkingYou\ContaoSpeisekarte\DataContainer\Zusatzstoffe
+        public: true
     contao_speisekarte.allergene:
         class: LinkingYou\ContaoSpeisekarte\DataContainer\Allergene
+        public: true
