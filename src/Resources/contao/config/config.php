@@ -40,4 +40,3 @@ $GLOBALS['TL_MODELS']['tl_contao_speisekarte_kategorien'] = 'LinkingYou\\ContaoS
  * Frontend modules
  */
 $GLOBALS['FE_MOD']['contao_speisekarte']['contao_speisekarte_speisekarte'] ='LinkingYou\\ContaoSpeisekarte\\Module\\ModuleContaoSpeisekarte';
-
