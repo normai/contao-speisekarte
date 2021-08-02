@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * file : 20210729°1211 contao-speisekarte/src/Module/ModuleContaoSpeisekarte.php
+ * @license    http://opensource.org/licenses/lgpl-3.0.html LGPL
+ * @copyright  Copyright (c) 2017, Frank Müller
+ * @author     Frank Müller <frank.mueller@linking-you.de>
+ * @author     Modified by Norbert C. Maier
+ * summary   : Sorting items by title
+ * version   : 20210802°1441 Quick'n'dirty sort by title, now on GitHub
+ * version   : 20210730°1240 Quick'n'dirty
+ * version   : 20210729°1221 Initial experiment. Sort only the first category.
+ */
+
 namespace LinkingYou\ContaoSpeisekarte\Module;
 
 use Contao\Module;
@@ -62,7 +74,9 @@ class ModuleContaoSpeisekarte extends Module {
                         $speise["menge2"] = null;
                     }
                     if ($item->preis) {
-                        $speise["preis2"] = number_format($item->preis2,2,',','.');
+                        // [Fix 20210729°1111] Add '(float)' cast to avoid  Contao debugger "Warning:
+                        // number_format() expects parameter 1 to be float, string given" [see ss 20210729°1112]
+                        $speise["preis2"] = number_format( (float) $item->preis2, 2, ',', '.');
                     } else {
                         $speise["preis2"] = null;
                     }
@@ -72,7 +86,8 @@ class ModuleContaoSpeisekarte extends Module {
                         $speise["menge3"] = null;
                     }
                     if ($item->preis) {
-                        $speise["preis3"] = number_format($item->preis3,2,',','.');
+                        // [Fix 20210729°1113] Add '(float)' cast, same as in above fix 20210729°1111
+                        $speise["preis3"] = number_format( (float) $item->preis3, 2, ',', '.');
                     } else {
                         $speise["preis3"] = null;
                     }
@@ -116,13 +131,46 @@ class ModuleContaoSpeisekarte extends Module {
                     'zusatzstoffliste' => implode(', ', $zusatstoffliste),
                     'allergenliste' => implode(',', $allergenliste)
                 );
+
+                // Debug view [line 20210729°1121 ncm]
+                if (false) {
+                   print_r($speisekarte[0]['speisenliste']);
+                }
+
+                // Do the sorting [seq 20210729°1231]
+                // Note : This is done late. There were earlier occations to do it.
+                foreach ($speisekarte as &$kat) {
+                   $bSuccess = usort($kat['speisenliste'], 'self::sortByTitle');
+                }
+
+                // Debug view [seq 20210729°1122]
+                if (true) {
+                   print_r('Sort success = ');
+                   print_r($bSuccess ? 'true' : 'false');
+                   print_r('Speisekarte = ');
+                   print_r($speisekarte);
+                }
             }
 
             $this->Template->speisekarte = $speisekarte;
         }
-
-
-
     }
 
+    /**
+     * Function supplemented for sorting the Speisekarte
+     *
+     * This function could as well (or rather) be implemented
+     * as an anonymous function at the location of use.
+     *
+     * id : func 20210729°1221
+     */
+    public static function sortByTitle($a, $b) {
+
+        // Debug view [seq 20210729°1227]
+        if (false) {
+            print_r('SORT : ' . $a['titel'] . ' vs. ' . $b['titel'] . " -- <br>\n");
+        }
+
+        return strcmp($a['titel'], $b['titel']);
+    }
 }

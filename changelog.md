@@ -1,5 +1,7 @@
 ﻿### Changes since forking
 
+version 20210802°1441 Quick'n'dirty sort by title
+
 chg 20210802°1431 — Streamline: All files end with NewLine
 
 log 20210802°1417 —
