@@ -27,13 +27,11 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
             'fields'                  => array('sorting'),
             'flag'                    => 11,
             'panelLayout'             => 'search,limit',
-            'child_record_callback' => array('Speisen', 'getSpeisen'),
-            'headerFields' => array(
-                'titel'
-            )
+            'child_record_callback'   => array('Speisen', 'getSpeisen'),
+            'headerFields'            => array('titel')
         ),
         'label' => array
-        (            'fields'                  => array('titel'),
+        (   'fields'                  => array('titel'),
             'format'                  => '%s'
         ),
         'global_operations' => array

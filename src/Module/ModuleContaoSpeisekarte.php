@@ -6,7 +6,8 @@
  * @copyright  Copyright (c) 2017, Frank Müller
  * @author     Frank Müller <frank.mueller@linking-you.de>
  * @author     Modified by Norbert C. Maier
- * summary   : Sorting items by title
+ * summary   : Sort foods by their backend order
+ * version   : 20210803°xxxx Sort by backend order
  * version   : 20210802°1441 Quick'n'dirty sort by title, now on GitHub
  * version   : 20210730°1240 Quick'n'dirty
  * version   : 20210729°1221 Initial experiment. Sort only the first category.
@@ -51,7 +52,14 @@ class ModuleContaoSpeisekarte extends Module {
                 $zusatstoffliste = array();
                 $allergenliste = array();
                 foreach ($speisenObjekt as $item) {
+
                     $speise = array();
+
+                    // ---------------------------------
+                    // Enable sorting by backend order [seq 20210803°1231]
+                    $speise["sorting"] = $item->sorting;
+                    // ---------------------------------
+
                     $speise["titel"] = $item->titel;
                     if ($item->menge) {
                         $speise["menge"] = $item->menge;
@@ -74,8 +82,8 @@ class ModuleContaoSpeisekarte extends Module {
                         $speise["menge2"] = null;
                     }
                     if ($item->preis) {
-                        // [Fix 20210729°1111] Add '(float)' cast to avoid  Contao debugger "Warning:
-                        // number_format() expects parameter 1 to be float, string given" [see ss 20210729°1112]
+                        // [Fix 20210729°1111 see ss 20210729°1112] Add '(float)' to avoid Contao debugger
+                        // "Warning: number_format() expects parameter 1 to be float, string given"
                         $speise["preis2"] = number_format( (float) $item->preis2, 2, ',', '.');
                     } else {
                         $speise["preis2"] = null;
@@ -86,7 +94,7 @@ class ModuleContaoSpeisekarte extends Module {
                         $speise["menge3"] = null;
                     }
                     if ($item->preis) {
-                        // [Fix 20210729°1113] Add '(float)' cast, same as in above fix 20210729°1111
+                        // [Fix 20210729°1113] Add '(float)', same as in above fix 20210729°1111
                         $speise["preis3"] = number_format( (float) $item->preis3, 2, ',', '.');
                     } else {
                         $speise["preis3"] = null;
@@ -125,26 +133,29 @@ class ModuleContaoSpeisekarte extends Module {
 
                 asort($zusatstoffliste);
 
-                $speisekarte[] = array(
-                    'kategorie' => $kategorie->titel,
-                    'speisenliste'=> $speisenliste,
+                $speisekarte[] = array (
+                    'kategorie'        => $kategorie->titel,
+                    'speisenliste'     => $speisenliste,
                     'zusatzstoffliste' => implode(', ', $zusatstoffliste),
-                    'allergenliste' => implode(',', $allergenliste)
+                    'allergenliste'    => implode(',', $allergenliste)
                 );
 
                 // Debug view [line 20210729°1121 ncm]
-                if (false) {
-                   print_r($speisekarte[0]['speisenliste']);
+                if (FALSE) {
+                   ////print_r($speisekarte[0]['speisenliste']);
+                   print_r($speisekarte);
                 }
 
                 // Do the sorting [seq 20210729°1231]
                 // Note : This is done late. There were earlier occations to do it.
-                foreach ($speisekarte as &$kat) {
-                   $bSuccess = usort($kat['speisenliste'], 'self::sortByTitle');
+                if (TRUE) { // Toggle 20210803°1211
+                    foreach ($speisekarte as &$categ) {
+                        $bSuccess = usort($categ['speisenliste'], 'self::sortBySorting');
+                    }
                 }
 
                 // Debug view [seq 20210729°1122]
-                if (true) {
+                if (TRUE) {
                    print_r('Sort success = ');
                    print_r($bSuccess ? 'true' : 'false');
                    print_r('Speisekarte = ');
@@ -164,13 +175,21 @@ class ModuleContaoSpeisekarte extends Module {
      *
      * id : func 20210729°1221
      */
-    public static function sortByTitle($a, $b) {
+    public static function sortBySorting($a, $b) {
 
         // Debug view [seq 20210729°1227]
-        if (false) {
-            print_r('SORT : ' . $a['titel'] . ' vs. ' . $b['titel'] . " -- <br>\n");
+        if (TRUE) {
+            print_r('SORT : ' . $a['sorting'] . ' vs. ' . $b['sorting'] . " -- <br>\n");
         }
 
-        return strcmp($a['titel'], $b['titel']);
+        // Field 'sorting' is not (yet) in the array [note 20210803°1221]
+        ////return strcmp($a['titel'], $b['titel']);
+
+
+        if ($a['sorting'] == $b['sorting']) {
+            return 0;
+        }
+        return ($a['sorting'] < $b['sorting']) ? -1 : 1;
+
     }
 }
