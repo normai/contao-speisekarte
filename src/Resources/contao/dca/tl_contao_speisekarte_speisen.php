@@ -7,9 +7,9 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
     'config' => array
     (
         'dataContainer'               => 'Table',
-        'ptable' => 'tl_contao_speisekarte_kategorien',
+        'ptable'                      => 'tl_contao_speisekarte_kategorien',
         'enableVersioning'            => true,
-        'sql' => array
+        'sql'                         => array
         (
             'keys' => array
             (
@@ -260,7 +260,7 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
                 'tl_class'=>'w50 widget'
             ),
             'sql'                     => "text NULL"
-            //'sql'                     => "varchar(255) NOT NULL default ''"
+            //'sql'                   => "varchar(255) NOT NULL default ''"
         ),
         'allergene' => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['allergene'],
@@ -274,7 +274,7 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
                 'tl_class'=>'w50 widget'
             ),
             'sql'                     => "text NULL"
-            //'sql'                     => "varchar(255) NOT NULL default ''"
+            //'sql'                   => "varchar(255) NOT NULL default ''"
         )
     )
 );

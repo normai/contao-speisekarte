@@ -5,12 +5,9 @@
  * @license    http://opensource.org/licenses/lgpl-3.0.html LGPL
  * @copyright  Copyright (c) 2017, Frank Müller
  * @author     Frank Müller <frank.mueller@linking-you.de>
- * @author     Modified by Norbert C. Maier
+ * @author     Modifications by Norbert C. Maier <https://github.com/normai/contao-speisekarte>
  * summary   : Sort foods by their backend order
- * version   : 20210803°xxxx Sort by backend order
- * version   : 20210802°1441 Quick'n'dirty sort by title, now on GitHub
- * version   : 20210730°1240 Quick'n'dirty
- * version   : 20210729°1221 Initial experiment. Sort only the first category.
+ * version   : 20210803°1311 Sort foods by backend order
  */
 
 namespace LinkingYou\ContaoSpeisekarte\Module;
@@ -56,7 +53,7 @@ class ModuleContaoSpeisekarte extends Module {
                     $speise = array();
 
                     // ---------------------------------
-                    // Enable sorting by backend order [seq 20210803°1231]
+                    // Field wanted for sorting after backend order [line 20210803°1231 added]
                     $speise["sorting"] = $item->sorting;
                     // ---------------------------------
 
@@ -67,7 +64,9 @@ class ModuleContaoSpeisekarte extends Module {
                         $speise["menge"] = null;
                     }
                     if ($item->preis) {
-                        $speise["preis"] = number_format($item->preis,2,',','.');
+                        // Why does the Contao debugger not complain about the missing
+                        //  float cast here, as it does below? [note 20210729°1114]
+                        $speise["preis"] = number_format($item->preis, 2, ',', '.');
                     } else {
                         $speise["preis"] = null;
                     }
@@ -131,6 +130,27 @@ class ModuleContaoSpeisekarte extends Module {
                     $speisenliste[] = $speise;
                 }
 
+                //--------------------------------------
+                // Debug output [line 20210729°1121 ncm]
+                if (FALSE) {
+                   print_r($speisenliste);
+                }
+
+                // Do the sorting [seq 20210729°1231]
+                // Note : This is done late. It could be done earlier, notably at the SQL query.
+                if (TRUE) {
+                    $bSuccess = usort($speisenliste, 'self::sortBySorting');
+                }
+
+                // Debug output [seq 20210729°1122]
+                if (TRUE) {
+                   print_r('Success = ');
+                   print_r($bSuccess ? 'true' : 'false');
+                   print_r('Speisenliste = ');
+                   print_r($speisenliste);
+                }
+                //--------------------------------------
+
                 asort($zusatstoffliste);
 
                 $speisekarte[] = array (
@@ -139,28 +159,6 @@ class ModuleContaoSpeisekarte extends Module {
                     'zusatzstoffliste' => implode(', ', $zusatstoffliste),
                     'allergenliste'    => implode(',', $allergenliste)
                 );
-
-                // Debug view [line 20210729°1121 ncm]
-                if (FALSE) {
-                   ////print_r($speisekarte[0]['speisenliste']);
-                   print_r($speisekarte);
-                }
-
-                // Do the sorting [seq 20210729°1231]
-                // Note : This is done late. There were earlier occations to do it.
-                if (TRUE) { // Toggle 20210803°1211
-                    foreach ($speisekarte as &$categ) {
-                        $bSuccess = usort($categ['speisenliste'], 'self::sortBySorting');
-                    }
-                }
-
-                // Debug view [seq 20210729°1122]
-                if (TRUE) {
-                   print_r('Sort success = ');
-                   print_r($bSuccess ? 'true' : 'false');
-                   print_r('Speisekarte = ');
-                   print_r($speisekarte);
-                }
             }
 
             $this->Template->speisekarte = $speisekarte;
@@ -177,19 +175,14 @@ class ModuleContaoSpeisekarte extends Module {
      */
     public static function sortBySorting($a, $b) {
 
-        // Debug view [seq 20210729°1227]
+        // Debug output [seq 20210729°1227]
         if (TRUE) {
             print_r('SORT : ' . $a['sorting'] . ' vs. ' . $b['sorting'] . " -- <br>\n");
         }
-
-        // Field 'sorting' is not (yet) in the array [note 20210803°1221]
-        ////return strcmp($a['titel'], $b['titel']);
-
 
         if ($a['sorting'] == $b['sorting']) {
             return 0;
         }
         return ($a['sorting'] < $b['sorting']) ? -1 : 1;
-
     }
 }
