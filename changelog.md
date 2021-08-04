@@ -1,7 +1,13 @@
 ﻿### Changes since forking
 
-version 20210803°1311 — **v1.0.1.c** — **Sort items after backend order**
-(see ./src/Module/ModuleContaoSpeisekarte.php)
+version 20210804°0911 — **v1.0.1.c.2** — **Sort items after backend order**
+ See ./src/Module/ModuleContaoSpeisekarte.php.
+ Fixed: No more debug message left open.
+
+version 20210803°1311 — v1.0.1.c — Sort items after backend order.
+ See ./src/Module/ModuleContaoSpeisekarte.php.
+ Bug: Debug messages on page top left active.
+ Version discarded.
 
 chg 20210802°1431 — Streamline: All files end with NewLine
 

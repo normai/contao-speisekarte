@@ -7,7 +7,9 @@
  * @author     Frank Müller <frank.mueller@linking-you.de>
  * @author     Modifications by Norbert C. Maier <https://github.com/normai/contao-speisekarte>
  * summary   : Sort foods by their backend order
+ * version   :
  * version   : 20210803°1311 Sort foods by backend order
+ * encoding  : UTF-8-without-BOM, UNIX-style-line-end '0x0a'
  */
 
 namespace LinkingYou\ContaoSpeisekarte\Module;
@@ -133,7 +135,7 @@ class ModuleContaoSpeisekarte extends Module {
                 //--------------------------------------
                 // Debug output [line 20210729°1121 ncm]
                 if (FALSE) {
-                   print_r($speisenliste);
+                    print_r($speisenliste);
                 }
 
                 // Do the sorting [seq 20210729°1231]
@@ -143,7 +145,7 @@ class ModuleContaoSpeisekarte extends Module {
                 }
 
                 // Debug output [seq 20210729°1122]
-                if (TRUE) {
+                if (FALSE) {
                    print_r('Success = ');
                    print_r($bSuccess ? 'true' : 'false');
                    print_r('Speisenliste = ');
@@ -175,8 +177,8 @@ class ModuleContaoSpeisekarte extends Module {
      */
     public static function sortBySorting($a, $b) {
 
-        // Debug output [seq 20210729°1227]
-        if (TRUE) {
+        // Debug output optional [seq 20210729°1227]
+        if (FALSE) {
             print_r('SORT : ' . $a['sorting'] . ' vs. ' . $b['sorting'] . " -- <br>\n");
         }
 
