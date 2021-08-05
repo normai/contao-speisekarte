@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // version : 20210805°0911 ncm
 //           • chg 20210805°0921 Edit dishes with TinyMCE
@@ -129,8 +129,8 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
             'inputType'               => 'text',
             'eval'                    => array(
                 'mandatory' => false,
-                'rgxp' => 'natural',
-                'tl_class' => 'w50 widget'
+                'rgxp'      => 'natural',
+                'tl_class'  => 'w50 widget'
             ),
             'sql'                     => "int(10) unsigned NULL"
         ),
@@ -142,7 +142,7 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
             'eval'                    => array(
                 'mandatory' => true,
                 'maxlength' => 255,
-                'tl_class' => 'w50 widget'
+                'tl_class'  => 'w50 widget'
             ),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
@@ -162,11 +162,12 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
                 'feViewable' => true,                                  // added 20210805°092215
                 'preserveTags' => false,                               // added 20210805°092216
                 'rows'       => 4,                                     // added 20210805°092217
-                'rte'        => 'tinyMCE'                              // added 20210805°092218
+                'rte'        => 'tinyMCE'                              // added 20210805°092218 'rich text editor'
              ),
             'sql'                     => "varchar(10000) NOT NULL default ''"  // added 20210805°092119
         ),
 
+/* */
         // Allow for defining an image per dish [seq 20210805°0931]
         // Status : Not working yet
         'picture'                     => array
@@ -189,6 +190,7 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
             ),
             'sql'        => "blob ''"
          ),
+/* */
 
         'menge' => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['menge'],

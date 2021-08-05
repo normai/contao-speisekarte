@@ -7,9 +7,9 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_kategorien'] = array
     'config' => array
     (
         'dataContainer'               => 'Table',
-        'ctable' => array('tl_contao_speisekarte_speisen'),
+        'ctable'                      => array('tl_contao_speisekarte_speisen'),
         'enableVersioning'            => true,
-        'sql' => array
+        'sql'                         => array
         (
             'keys' => array
             (
@@ -29,7 +29,8 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_kategorien'] = array
             'panelLayout'             => 'search,limit'
         ),
         'label' => array
-        (            'fields'                  => array('titel'),
+        (
+            'fields'                  => array('titel'),
             'format'                  => '%s'
         ),
         'global_operations' => array

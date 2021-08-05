@@ -1,4 +1,4 @@
-﻿# contao-speisekarte &nbsp; <sup><sub><sup>*Version 1.0.1.c.2...*</sup></sub></sup>
+﻿# contao-speisekarte &nbsp; <sup><sub><sup>*Version 1.0.1.d*</sup></sub></sup>
 
 ### Synopsis
 

@@ -28,7 +28,8 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_zusatzstoffe'] = array
             'panelLayout'             => 'search,limit'
         ),
         'label' => array
-        (            'fields'                  => array('titel'),
+        (
+            'fields'                  => array('titel'),
             'format'                  => '%s'
         ),
         'global_operations' => array
@@ -43,7 +44,8 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_zusatzstoffe'] = array
         ),
         'operations' => array
         (
-            'edit' => array(
+            'edit' => array
+            (
                 'label'               => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_zusatzstoffe']['edit'],
                 'href'                => 'act=edit',
                 'icon' => 'edit.svg'
@@ -119,7 +121,8 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_zusatzstoffe'] = array
             'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_zusatzstoffe']['kuerzel'],
             'exclude'                 => true,
             'inputType'               => 'text',
-            'eval'                    => array(
+            'eval'                    => array
+            (
                 'mandatory'=>true,
                 'maxlength'=>10,
                 'unique' => true

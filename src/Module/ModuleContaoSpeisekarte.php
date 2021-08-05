@@ -168,16 +168,19 @@ class ModuleContaoSpeisekarte extends Module {
     }
 
     /**
-     * Function supplemented for sorting the Speisekarte
+     * Function for sorting the dishes
      *
-     * This function could as well (or rather) be implemented
-     * as an anonymous function at the location of use.
+     * • Perhaps this functionality could even be done without any code,
+     *   just by definitions in dca/tl_contao_speisekarte_speisen.php
+     *
+     * • This function could as well (or rather) be implemented
+     *   as an anonymous function at the location of use.
      *
      * id : func 20210729°1221
      */
     public static function sortBySorting($a, $b) {
 
-        // Debug output optional [seq 20210729°1227]
+        // Debug output [seq 20210729°1227]
         if (FALSE) {
             print_r('SORT : ' . $a['sorting'] . ' vs. ' . $b['sorting'] . " -- <br>\n");
         }

@@ -28,7 +28,8 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_allergene'] = array
             'panelLayout'             => 'search,limit'
         ),
         'label' => array
-        (            'fields'                  => array('titel'),
+        (
+            'fields'                  => array('titel'),
             'format'                  => '%s'
         ),
         'global_operations' => array
@@ -46,7 +47,7 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_allergene'] = array
             'edit' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_allergene']['edit'],
                 'href'                => 'act=edit',
-                'icon' => 'edit.svg'
+                'icon'                => 'edit.svg'
             ),
             'copy' => array
             (
