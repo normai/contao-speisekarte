@@ -2,7 +2,7 @@
 
 // version : 20210805°0911 ncm
 //           • chg 20210805°0921 Edit dishes with TinyMCE
-//           • seq 20210805°0931 Allow for defining an image per dish -- Not functioning yet
+//           //• seq 20210805°0931 Allow for defining an image per dish -- Not functioning yet
 
 $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
 (
@@ -167,7 +167,7 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
             'sql'                     => "varchar(10000) NOT NULL default ''"  // added 20210805°092119
         ),
 
-/* */
+/*
         // Allow for defining an image per dish [seq 20210805°0931]
         // Status : Not working yet
         'picture'                     => array
@@ -190,7 +190,7 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
             ),
             'sql'        => "blob ''"
          ),
-/* */
+*/
 
         'menge' => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['menge'],

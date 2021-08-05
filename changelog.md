@@ -1,8 +1,9 @@
 ﻿### Changes since forking
 
-version 20210805°xxxx — **v1.0.1.d — Edit dishes with TinyMCE**
+version 20210805°0951 — **v1.0.1.d — Edit dishes with TinyMCE**
 - Edit dishes with TinyMCE &nbsp; <sup>*[chg 20210805°0921]*</sup>
-- Allow for defining an image per dish -- Not functioning yet &nbsp; <sup>*[seq 20210805°0931]*</sup>
+- Adjust 'Allergene' output &nbsp; <sup>*[chg 20210805°0941]*</sup>
+- Insert first code for defining an image per dish (still outcommented) &nbsp; <sup>*[seq 20210805°0931]*</sup>
 
 version 20210804°0911 — **v1.0.1.c.2 — Sort items after backend order**
  See ./src/Module/ModuleContaoSpeisekarte.php.

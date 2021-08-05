@@ -22,7 +22,8 @@ $GLOBALS['TL_CSS'][] = 'bundles/contaospeisekarte/speisekarte.scss|static';
                             <sub><?php echo $speise["zusatzstoffe"]; ?></sub>
                         <?php endif; ?>
                         <?php if ($speise["allergene"]): ?>
-                            <sub>Allergene: <?php echo $speise["allergene"]; ?></sub>
+                            <!-- sub>Allergene: <?php echo $speise["allergene"]; ?></sub -->
+                            <sub><?php echo $speise["allergene"]; ?></sub><!-- chg 20210805°0941 -->
                         <?php endif; ?>
                         <br />
 

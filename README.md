@@ -19,21 +19,23 @@
 
 ### Features
 
-- Create several **categories**, e.g. Main dishes, Desserts, Beverages
+- Create multiple **categories**, e.g. Main dishes, Desserts, Beverages
 
-- The items appear **sorted** as you order them in the backend
+- The dishes are edited with **TinyMCE**
 
-- The categories can be sorted arbitrarily as well
+- The **sort order** of categories and dishes is as layed down in the backend
 
-- **Additives** and **allergens** can be annotated
+- Annotate **additives** (Zusatzstoffe) and **allergens**
 
-- Instead of having one module with several categories, you can
- **create several modules** with one category each, which provides more
- freedom for the layout
+- The **language** is German only so far
+
+- Instead of having one module with multiple categories, you can
+ create **multiple modules** with one category each. This provides
+ even more freedom with the overall layout
 
 ### Planned features
 
-- Allow for **images** beside the foods. Images shall be switched on/off in the backend.
+- Allow for **images** beside the foods. Images shall to be switched on/off in the backend.
 
 ### Users
 
