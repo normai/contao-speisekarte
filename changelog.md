@@ -1,6 +1,10 @@
 ﻿### Changes since forking
 
-version 20210804°0911 — **v1.0.1.c.2** — **Sort items after backend order**
+version 20210805°xxxx — **v1.0.1.d — Edit dishes with TinyMCE**
+- Edit dishes with TinyMCE &nbsp; <sup>*[chg 20210805°0921]*</sup>
+- Allow for defining an image per dish -- Not functioning yet &nbsp; <sup>*[seq 20210805°0931]*</sup>
+
+version 20210804°0911 — **v1.0.1.c.2 — Sort items after backend order**
  See ./src/Module/ModuleContaoSpeisekarte.php.
  Fixed: No more debug message left open.
 

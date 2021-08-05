@@ -1,4 +1,4 @@
-﻿# contao-speisekarte &nbsp; <sup><sub><sup>*Version 1.0.1.c.2*</sup></sub></sup>
+﻿# contao-speisekarte &nbsp; <sup><sub><sup>*Version 1.0.1.c.2...*</sup></sub></sup>
 
 ### Synopsis
 
@@ -37,13 +37,11 @@
 
 ### Users
 
-You find the contao-speisekarte applied e.g. on
+You can find the contao-speisekarte applied e.g. on
 
 - [www.thalermühle.de/restaurant/Speisekarte.html](https://www.xn--thalermhle-geb.de/restaurant/Speisekarte.html)
 
-(perhaps not yet in the latest version)
-
-&nbsp;
+(possibly not yet with the latest version)
 
 ---
 

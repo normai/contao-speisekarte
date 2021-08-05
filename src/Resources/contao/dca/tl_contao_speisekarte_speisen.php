@@ -1,4 +1,8 @@
-<?php
+<?php 
+
+// version : 20210805°0911 ncm
+//           • chg 20210805°0921 Edit dishes with TinyMCE
+//           • seq 20210805°0931 Allow for defining an image per dish -- Not functioning yet
 
 $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
 (
@@ -31,7 +35,8 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
             'headerFields'            => array('titel')
         ),
         'label' => array
-        (   'fields'                  => array('titel'),
+        (
+            'fields'                  => array('titel'),
             'format'                  => '%s'
         ),
         'global_operations' => array
@@ -49,7 +54,7 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
             'edit' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['edit'],
                 'href'                => 'act=edit',
-                'icon' => 'edit.svg'
+                'icon'                => 'edit.svg'
             ),
             'copy' => array
             (
@@ -89,7 +94,7 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
     'palettes' => array
     (
         '__selector__'                => array(''),
-        'default'                     => '{titel_legend},nummer,titel,beschreibung;{preise_legende},menge,preis,menge2,preis2,menge3,preis3,einheit,grundpreis;{zusatzstoffe_legende},zusatzstoffe,allergene;'
+        'default'                     => '{titel_legend},nummer,titel,beschreibung;{bild},picture;{Preise},menge,preis,menge2,preis2,menge3,preis3,einheit,grundpreis;{zusatzstoffe_legende},zusatzstoffe,allergene;'
     ),
 
     // Subpalettes
@@ -123,9 +128,9 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array(
-                'mandatory'=>false,
+                'mandatory' => false,
                 'rgxp' => 'natural',
-                'tl_class'=>'w50 widget'
+                'tl_class' => 'w50 widget'
             ),
             'sql'                     => "int(10) unsigned NULL"
         ),
@@ -135,32 +140,65 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array(
-                'mandatory'=>true,
-                'maxlength'=>255,
-                'tl_class'=>'w50 widget'
+                'mandatory' => true,
+                'maxlength' => 255,
+                'tl_class' => 'w50 widget'
             ),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
+
+        // Edit dish with TinyMCE [chg 20210805°0921]
         'beschreibung' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['beschreibung'],
             'exclude'                 => true,
             'inputType'               => 'textarea',
-            'eval'                    => array(
-                'mandatory'=>false,
-                'tl_class' => 'clr'
-            ),
-            'sql'                     => "text NULL"
+            'eval'                    => array (
+                // 'mandatory' => false,                               // shutdown 20210805°092211
+                'tl_class'   => 'clr',
+                'allowHtml'  => true,                                  // added 20210805°092212
+                'cols'       => 110,                                   // added 20210805°092213
+                'feEditable' => true,                                  // added 20210805°092214
+                'feViewable' => true,                                  // added 20210805°092215
+                'preserveTags' => false,                               // added 20210805°092216
+                'rows'       => 4,                                     // added 20210805°092217
+                'rte'        => 'tinyMCE'                              // added 20210805°092218
+             ),
+            'sql'                     => "varchar(10000) NOT NULL default ''"  // added 20210805°092119
         ),
+
+        // Allow for defining an image per dish [seq 20210805°0931]
+        // Status : Not working yet
+        'picture'                     => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['picture'],
+            'fields'                  => array
+            (
+                'image'               => array
+                (
+                    'label'           => array('Bild', ''),
+                    'inputType'       => 'fileTree',
+                    'eval'            => array
+                    (
+                        'fieldType'   => 'radio',
+                        'filesOnly'   => true,
+                        'extensions'  => \Config::get('validImageTypes'),
+                        'tl_class'    => 'clr',
+                    ),
+                ),
+            ),
+            'sql'        => "blob ''"
+         ),
+
         'menge' => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['menge'],
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array(
-                'mandatory'=>false,
-                'maxlength'=>255,
+                'mandatory' => false,
+                'maxlength' => 255,
                 'rgxp' => 'digit',
-                'tl_class'=>'w50 widget'
+                'tl_class' => 'w50 widget'
             ),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
@@ -169,10 +207,10 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array(
-                'mandatory'=>false,
-                'maxlength'=>255,
-                'rgxp' => 'digit',
-                'tl_class'=>'w50 widget'
+                'mandatory'           => false,
+                'maxlength'           => 255,
+                'rgxp'                => 'digit',
+                'tl_class'            => 'w50 widget'
             ),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
@@ -181,10 +219,10 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array(
-                'mandatory'=>false,
-                'maxlength'=>255,
+                'mandatory' => false,
+                'maxlength' => 255,
                 'rgxp' => 'digit',
-                'tl_class'=>'w50 widget'
+                'tl_class' => 'w50 widget'
             ),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
@@ -193,10 +231,10 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array(
-                'mandatory'=>false,
-                'maxlength'=>255,
+                'mandatory' => false,
+                'maxlength' => 255,
                 'rgxp' => 'digit',
-                'tl_class'=>'w50 widget'
+                'tl_class' => 'w50 widget'
             ),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
@@ -205,10 +243,10 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array(
-                'mandatory'=>false,
-                'maxlength'=>255,
+                'mandatory' => false,
+                'maxlength' => 255,
                 'rgxp' => 'digit',
-                'tl_class'=>'w50 widget'
+                'tl_class' => 'w50 widget'
             ),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
@@ -217,10 +255,10 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array(
-                'mandatory'=>false,
-                'maxlength'=>255,
+                'mandatory' => false,
+                'maxlength' => 255,
                 'rgxp' => 'digit',
-                'tl_class'=>'w50 widget'
+                'tl_class' => 'w50 widget'
             ),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
@@ -228,15 +266,16 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
             'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['einheit'],
             'exclude'                 => true,
             'inputType'               => 'select',
-            'options' => array(
-                'Liter',
-                'g',
-                'kg'
+            'options'                 => array (
+                                            'Liter',
+                                            'g',       // possibly superfluous
+                                            'kg',      // possibly superfluous
+                                            'Stk'
             ),
-            'eval' => array(
-                'includeBlankOption' => true,
-                'tl_class'=>'w50 widget'
-            ),
+            'eval'                    => array (
+                                             'includeBlankOption' => true,
+                                             'tl_class'           => 'w50 widget'
+                                         ),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
         'grundpreis' => array(
@@ -244,7 +283,7 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
             'exclude'                 => true,
             'inputType'               => 'checkbox',
             'eval' => array(
-                'tl_class'=>'w50 widget'
+                'tl_class' => 'w50 widget'
             ),
             'sql'                     => "varchar(10) NOT NULL default ''"
         ),
@@ -256,11 +295,11 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
                 return \Contao\System::getContainer()->get('contao_speisekarte.zusatzstoffe')->getZusatzstoffe();
             },
             'eval'                    => array(
-                'multiple'=>true,
-                'tl_class'=>'w50 widget'
+                'multiple' => true,
+                'tl_class' => 'w50 widget'
             ),
-            'sql'                     => "text NULL"
             //'sql'                   => "varchar(255) NOT NULL default ''"
+            'sql'                     => "text NULL"
         ),
         'allergene' => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['allergene'],
@@ -270,11 +309,11 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
                 return \Contao\System::getContainer()->get('contao_speisekarte.allergene')->getAllergene();
             },
             'eval'                    => array(
-                'multiple'=>true,
-                'tl_class'=>'w50 widget'
+                'multiple' => true,
+                'tl_class' => 'w50 widget'
             ),
-            'sql'                     => "text NULL"
             //'sql'                   => "varchar(255) NOT NULL default ''"
+            'sql'                     => "text NULL"
         )
     )
 );
