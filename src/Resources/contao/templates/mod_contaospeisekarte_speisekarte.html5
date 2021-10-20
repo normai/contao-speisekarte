@@ -1,3 +1,7 @@
+<!--
+   File : 20210806°0911
+-->
+
 <?php
 $GLOBALS['TL_CSS'][] = 'bundles/contaospeisekarte/speisekarte.scss|static';
 ?>
@@ -16,6 +20,7 @@ $GLOBALS['TL_CSS'][] = 'bundles/contaospeisekarte/speisekarte.scss|static';
             <?php foreach ($kategorie['speisenliste'] as $speise): ?>
                 <tr>
                     <td class="contao_speisekarte_nummer"><?= $speise["nummer"] ?></td>
+                    <!-- td class="contao_speisekarte_nummer"><?= print_r("***"); print_r($speise); print_r("***"); ?></td --><!-- Debug output [line 20210806°0921] -->
                     <td class="contao_speisekarte_titel">
                         <?= $speise["titel"] ?>
                         <?php if ($speise["zusatzstoffe"]): ?>

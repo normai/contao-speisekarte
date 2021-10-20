@@ -1,8 +1,15 @@
 <?php
 
-// version : 20210805°0911 ncm
-//           • chg 20210805°0921 Edit dishes with TinyMCE
-//           //• seq 20210805°0931 Allow for defining an image per dish -- Not functioning yet
+/**
+ *  File : 20210805°0911 dca/tl_contao_speisekarte_speisen.php
+ *  Versions :
+ *     • chg 20210805°0921 Edit dishes with TinyMCE
+ *     ////• seq 20210805°0931 Allow for defining an image per dish -- Not functioning
+ *  References : e.g.
+ *     • https://docs.contao.org/dev/reference/dca/ [ref 20210805°1022]
+ *  Notes :
+ *     • 20210806°0911 Start implementing image
+ */
 
 $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
 (
@@ -94,7 +101,8 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
     'palettes' => array
     (
         '__selector__'                => array(''),
-        'default'                     => '{titel_legend},nummer,titel,beschreibung;{bild},picture;{Preise},menge,preis,menge2,preis2,menge3,preis3,einheit,grundpreis;{zusatzstoffe_legende},zusatzstoffe,allergene;'
+        ////'default'                 => '{titel_legend},nummer,titel,beschreibung;{Bild},picture;{Preise},menge,preis,menge2,preis2,menge3,preis3,einheit,grundpreis;{zusatzstoffe_legende},zusatzstoffe,allergene;'
+        'default'                     => '{titel_legend},nummer,titel,beschreibung;{Bild},dishpic;{Preise},menge,preis,menge2,preis2,menge3,preis3,einheit,grundpreis;{zusatzstoffe_legende},zusatzstoffe,allergene;'
     ),
 
     // Subpalettes
@@ -167,9 +175,9 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
             'sql'                     => "varchar(10000) NOT NULL default ''"  // added 20210805°092119
         ),
 
-/*
+ /*
         // Allow for defining an image per dish [seq 20210805°0931]
-        // Status : Not working yet
+        // Status : Not working
         'picture'                     => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['picture'],
@@ -188,9 +196,50 @@ $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
                     ),
                 ),
             ),
-            'sql'        => "blob ''"
+            'sql'                     => "blob ''"
          ),
-*/
+ */
+
+        // Allow for defining an image per dish [seq 20210806°0913 (after 20210805°0931)]
+        // Ref : https://docs.contao.org/dev/reference/dca/fields/
+        // Demo snippets search 'validImageTypes' e.g. in
+        //    • G:\work\kampuni\contao4xtm\trunk\htdocs\vendor\contao\calendar-bundle\src\Resources\contao\dca\tl_calendar_events.php
+        ////'picture'                 => array
+        'dishpic'                     => array                                  // Choose a unique field name, 'picture' is found in 111 files
+        (
+            ////'label'               => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['picture'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['dishpic'], // Choose a unique field name, 'picture' is found in 111 files
+            'exclude'                 => true,
+            'inputType'               => 'fileTree',
+            'eval'                    => array
+            (
+                'fieldType'           => 'radio',                               // Select only one, not multiple as with checkbox
+                'filesOnly'           => true,                                  // Avoid selecting a folder
+                'extensions'          => \Config::get('validImageTypes'),       // Limit file tree to certain file types
+                'tl_class'            => 'clr',                                 // Add the given CSS class(es) to the generated HTML
+                'mandatory'           => true                                   // If true the field cannot be empty
+
+                ////'fieldType'       => 'radio',                               // Select only one, not multiple as with checkbox
+                ////'files'           => true                                   // after outdated https://docs.contao.org/books/cookbook/en/custom-module/part2.html
+                ////'filesOnly'       => true,                                  // Avoid selecting a folder
+            ),
+            ////'sql'                 => "blob ''"
+            'sql'                     => "binary(16) NULL"                      // ? The cryptic image id
+        ),
+
+
+        // // Demo snippet from one of 15 files found by searching for 'validImageTypes'
+        // //  G:\work\kampuni\contao4xtm\trunk\htdocs\vendor\contao\calendar-bundle\src\Resources\contao\dca\tl_calendar_events.php
+        // 'singleSRC' => array
+        // (
+        //    'label'                   => &$GLOBALS['TL_LANG']['tl_content']['singleSRC'],
+        //    'exclude'                 => true,
+        //    'inputType'               => 'fileTree',
+        //    'eval'                    => array('filesOnly'=>true, 'fieldType'=>'radio', 'extensions'=>Config::get('validImageTypes'), 'mandatory'=>true),
+        //    'sql'                     => "binary(16) NULL"
+        // ),
+
+
 
         'menge' => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_contao_speisekarte_speisen']['menge'],

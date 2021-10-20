@@ -55,8 +55,18 @@ class ModuleContaoSpeisekarte extends Module {
                     $speise = array();
 
                     // ---------------------------------
-                    // Field wanted for sorting after backend order [line 20210803°1231 added]
+                    // Field for sorting after backend order [line 20210803°1231]
                     $speise["sorting"] = $item->sorting;
+                    // ---------------------------------
+
+                    // ---------------------------------
+                    // Field for possible image [seq 20210806°0931]
+                    $speise["imageurl"] = $item->dishpic;
+
+                    // Todo 20210806°0933 : How to retrieve the image url from
+                    //   the image id, or whatever this cryptic string is called?!
+
+
                     // ---------------------------------
 
                     $speise["titel"] = $item->titel;
