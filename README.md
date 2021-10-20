@@ -1,4 +1,4 @@
-﻿# contao-speisekarte &nbsp; <sup><sub><sup>*Version 1.0.1.d*</sup></sub></sup>
+﻿# contao-speisekarte &nbsp; <sup><sub><sup>*Version 1.0.2*</sup></sub></sup>
 
 ### Synopsis
 
@@ -7,8 +7,7 @@
 
 - **Copyright** : © 2017 Frank Müller
 
-- **Authors** : Frank Müller &lt;frank.mueller@linking-you.de&gt;,
- modifications by Norbert C. Maier
+- **Authors** : Frank Müller, modifications by Norbert C. Maier
 
 - **License** : LGPL v3 [opensource.org/licenses/lgpl-3.0.html](http://opensource.org/licenses/lgpl-3.0.html)
 
@@ -43,7 +42,7 @@ You can find the contao-speisekarte applied e.g. on
 
 - [www.thalermühle.de/restaurant/Speisekarte.html](https://www.xn--thalermhle-geb.de/restaurant/Speisekarte.html)
 
-(possibly not yet with the latest version)
+*Bon appétit!*
 
 ---
 

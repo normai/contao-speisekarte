@@ -1,9 +1,23 @@
 <!--
-   File : 20210806°0911
+   file        : 20210806°0911
+   version     : 20211020°1551 — v1.0.2 — Format prices
 -->
 
 <?php
 $GLOBALS['TL_CSS'][] = 'bundles/contaospeisekarte/speisekarte.scss|static';
+
+// func 20211020°1531
+// summary : Format a price
+// note : The price comes in as of type string
+function fmtpreis($prz) {
+   $fmt = "";
+   if ($prz != 0) {
+      $prz = rtrim($prz, ",0");
+      $fmt = $prz . "&nbsp;&nbsp;&nbsp;€";                             // Make this line optional [todo 20211020°1535]
+   }
+   return $fmt;
+}
+
 ?>
 
 <div class="contao_speisekarte">
@@ -28,7 +42,7 @@ $GLOBALS['TL_CSS'][] = 'bundles/contaospeisekarte/speisekarte.scss|static';
                         <?php endif; ?>
                         <?php if ($speise["allergene"]): ?>
                             <!-- sub>Allergene: <?php echo $speise["allergene"]; ?></sub -->
-                            <sub><?php echo $speise["allergene"]; ?></sub><!-- chg 20210805°0941 -->
+                            <sub><?php echo $speise["allergene"]; ?></sub><!-- [chg 20210805°0941] -->
                         <?php endif; ?>
                         <br />
 
@@ -42,7 +56,8 @@ $GLOBALS['TL_CSS'][] = 'bundles/contaospeisekarte/speisekarte.scss|static';
                         <?php if ($speise['menge']): ?>
                             <?= $speise["menge"] ?>
                             <?php switch($speise['einheit']) {
-                                case 'Liter' : echo 'l';
+                                case 'Liter' : echo 'l'; break;        // break added [chg 20211020°1521]
+                                default :                              // line added [chg 20211020°1521]
                             }
                             ?>
                             <br />
@@ -51,7 +66,8 @@ $GLOBALS['TL_CSS'][] = 'bundles/contaospeisekarte/speisekarte.scss|static';
                         <?php if ($speise['menge2']): ?>
                             <?= $speise["menge2"] ?>
                             <?php switch($speise['einheit']) {
-                                case 'Liter' : echo 'l';
+                                case 'Liter' : echo 'l'; break;        // break added [chg 20211020°1521]
+                                default :                              // line added [chg 20211020°1521]
                             }
                             ?>
                             <br />
@@ -60,7 +76,8 @@ $GLOBALS['TL_CSS'][] = 'bundles/contaospeisekarte/speisekarte.scss|static';
                         <?php if ($speise['menge3']): ?>
                             <?= $speise["menge3"] ?>
                             <?php switch($speise['einheit']) {
-                                case 'Liter' : echo 'l';
+                                case 'Liter' : echo 'l'; break;        // break added [chg 20211020°1521]
+                                default :                              // line added [chg 20211020°1521]
                             }
                             ?>
                             <br />
@@ -68,22 +85,23 @@ $GLOBALS['TL_CSS'][] = 'bundles/contaospeisekarte/speisekarte.scss|static';
                     </td>
                     <td class="contao_speisekarte_preis">
                         <?php if($speise['preis']): ?>
-                            <?= $speise["preis"] ?> €<br />
+                            <?= fmtpreis($speise["preis"]) ?><br />    <!-- Call formatting [chg 20211020°1531] -->
                         <?php endif; ?>
 
                         <?php if($speise['preis2']): ?>
-                            <?= $speise["preis2"] ?> €<br />
+                            <?= fmtpreis($speise["preis2"]) ?><br />   <!-- Call formatting [chg 20211020°1531] -->
                         <?php endif; ?>
 
                         <?php if($speise['preis3']): ?>
-                            <?= $speise["preis3"] ?> €<br />
+                            <?= fmtpreis($speise["preis3"]) ?><br />   <!-- Call formatting [chg 20211020°1531] -->
                         <?php endif; ?>
                     </td>
                     <td class="contao_speisekarte_grundpreis">
                         <?php if ($speise['grundpreis']) : ?>
                             <?= $speise['grundpreis'] ?> €/
                                 <?php switch($speise['einheit']) {
-                                    case 'Liter' : echo 'l';
+                                    case 'Liter' : echo 'l'; break;    // break added [chg 20211020°1521]
+                                    default :                          // line added [chg 20211020°1521]
                                 }
                                 ?>
                         <?php endif; ?>

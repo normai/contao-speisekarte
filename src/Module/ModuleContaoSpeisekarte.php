@@ -4,7 +4,7 @@
  * file : 20210729°1211 contao-speisekarte/src/Module/ModuleContaoSpeisekarte.php
  * @license    http://opensource.org/licenses/lgpl-3.0.html LGPL
  * @copyright  Copyright (c) 2017, Frank Müller
- * @author     Frank Müller <frank.mueller@linking-you.de>
+ * @author     Frank Müller
  * @author     Modifications by Norbert C. Maier <https://github.com/normai/contao-speisekarte>
  * summary   : Sort foods by their backend order
  * version   :

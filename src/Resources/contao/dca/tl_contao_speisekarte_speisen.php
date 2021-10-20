@@ -1,14 +1,11 @@
 <?php
 
 /**
- *  File : 20210805°0911 dca/tl_contao_speisekarte_speisen.php
- *  Versions :
- *     • chg 20210805°0921 Edit dishes with TinyMCE
- *     ////• seq 20210805°0931 Allow for defining an image per dish -- Not functioning
- *  References : e.g.
- *     • https://docs.contao.org/dev/reference/dca/ [ref 20210805°1022]
- *  Notes :
- *     • 20210806°0911 Start implementing image
+ *  file       : 20210805°0911 dca/tl_contao_speisekarte_speisen.php
+ *  version    : • chg 20210805°0921 Edit dishes with TinyMCE
+ *  version    : ////• seq 20210805°0931 Allow for defining an image per dish -- Not functioning
+ *  reference  : e.g. https://docs.contao.org/dev/reference/dca/ [ref 20210805°1022]
+ *  note       : 20210806°0911 Start implementing image
  */
 
 $GLOBALS['TL_DCA']['tl_contao_speisekarte_speisen'] = array
