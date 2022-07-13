@@ -1,9 +1,10 @@
 ﻿### Changes since forking
 
+version 20220713°1911 — **v1.0.3 — Just add logo**
+
 version 20211020°1551 — **v1.0.2 — Format prices**
 - If prize is zero, output nothing
 - Trim trailing zeros, output e.g. '2.2 '
-
 
 version 20210805°0951 — **v1.0.1.d — Edit dishes with TinyMCE**
 - Edit dishes with TinyMCE &nbsp; <sup>*[chg 20210805°0921]*</sup>

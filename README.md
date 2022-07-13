@@ -1,4 +1,6 @@
-﻿# contao-speisekarte &nbsp; <sup><sub><sup>*Version 1.0.2*</sup></sub></sup>
+﻿<img src="./20211218o0933.cutlery-69792.v2.x0128y0128.png" align="right" width="128" height="128" alt="Icon 20211218°0933">
+
+# contao-speisekarte &nbsp; <sup><sub><sup>*Version 1.0.3*</sup></sub></sup>
 
 ### Synopsis
 
@@ -7,7 +9,7 @@
 
 - **Copyright** : © 2017 Frank Müller
 
-- **Authors** : Frank Müller, modifications by Norbert C. Maier
+- **Authors** : Frank Müller, Norbert C. Maier
 
 - **License** : LGPL v3 [opensource.org/licenses/lgpl-3.0.html](http://opensource.org/licenses/lgpl-3.0.html)
 
@@ -26,13 +28,16 @@
 
 - Annotate **additives** (Zusatzstoffe) and **allergens**
 
-- The **language** is German only so far
+- The language is **German only** so far
 
 - Instead of having one module with multiple categories, you can
  create **multiple modules** with one category each. This provides
  even more freedom with the overall layout
 
 ### Planned features
+
+- Supplement '**eye icons**' beside the menu items in the backend, to deactivate
+ and reactivate those items on the menu shown in the front end.
 
 - Allow for **images** beside the foods. Images shall to be switched on/off in the backend.
 
@@ -43,6 +48,13 @@ You can find the contao-speisekarte applied e.g. on
 - [www.thalermühle.de/restaurant/Speisekarte.html](https://www.xn--thalermhle-geb.de/restaurant/Speisekarte.html)
 
 *Bon appétit!*
+
+### Credits
+
+- Frank Müller for the original version of this Contao extension
+
+- Firkin for providing the cuttlery image under the public domain license on
+ [openclipart.org/detail/288933/cutlery](https://openclipart.org/detail/288933/cutlery)]
 
 ---
 
