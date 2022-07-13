@@ -5,7 +5,7 @@
 ### Synopsis
 
 - **Summary** :
- This is a Contao extension to put a Speisekarte on the site.
+ This is a Contao extension to put a Speisekarte (dishes menu) on the site.
 
 - **Copyright** : © 2017 Frank Müller
 
@@ -43,7 +43,7 @@
 
 ### Users
 
-You can find the contao-speisekarte applied e.g. on
+Find the contao-speisekarte applied e.g. on
 
 - [www.thalermühle.de/restaurant/Speisekarte.html](https://www.xn--thalermhle-geb.de/restaurant/Speisekarte.html)
 
@@ -51,10 +51,11 @@ You can find the contao-speisekarte applied e.g. on
 
 ### Credits
 
-- Frank Müller for the original version of this Contao extension
+- Frank Müller for the [original version](https://github.com/LinkingYou/contao-speisekarte)
+ of this Contao extension
 
 - Firkin for providing the cuttlery image under the public domain license on
- [openclipart.org/detail/288933/cutlery](https://openclipart.org/detail/288933/cutlery)]
+ [openclipart.org/detail/288933/cutlery](https://openclipart.org/detail/288933/cutlery)
 
 ---
 
