@@ -131,10 +131,10 @@ class ModuleContaoSpeisekarte extends Module {
                     if ($item->allergene) {
                         $tmp = array();
                         foreach (unserialize($item->allergene) as $allergen_id) {
-                            array_push($tmp, $allergene_service->getAllergenkuerzelById($allergen_id));
+                            array_push($tmp, $allergene_service->getAllergenKuerzelById($allergen_id));
 
                             // Hier die Kürzel der Allergene pro Speise rein
-                            $allergenliste[ $allergene_service->getAllergenkuerzelById($allergen_id)] = $allergene_service->getAllergenkuerzelById($allergen_id) . ' = ' . $allergene_service->getAllergentitelById($allergen_id);
+                            $allergenliste[ $allergene_service->getAllergenKuerzelById($allergen_id)] = $allergene_service->getAllergenkuerzelById($allergen_id) . ' = ' . $allergene_service->getAllergenTitelById($allergen_id);
                         }
                         $speise["allergene"] = implode(', ', $tmp);
                     }
@@ -155,7 +155,7 @@ class ModuleContaoSpeisekarte extends Module {
                 }
 
                 // Debug output [seq 20210729°1122]
-                if (FALSE) {
+                if (FALSE) {                                           //// FALSE TRUE
                    print_r('Success = ');
                    print_r($bSuccess ? 'true' : 'false');
                    print_r('Speisenliste = ');

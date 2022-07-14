@@ -1,17 +1,19 @@
 ﻿### Changes since forking
 
-version 20220713°1911 — **v1.0.3 — Just add logo**
+version 20220714°1111 — **v1.0.4** — Tiny cosmetic fix
 
-version 20211020°1551 — **v1.0.2 — Format prices**
+version 20220713°1911 — **v1.0.3** — Just add logo
+
+version 20211020°1551 — **v1.0.2** — Format prices
 - If prize is zero, output nothing
 - Trim trailing zeros, output e.g. '2.2 '
 
-version 20210805°0951 — **v1.0.1.d — Edit dishes with TinyMCE**
+version 20210805°0951 — **v1.0.1.d** — Edit dishes with TinyMCE
 - Edit dishes with TinyMCE &nbsp; <sup>*[chg 20210805°0921]*</sup>
 - Adjust 'Allergene' output &nbsp; <sup>*[chg 20210805°0941]*</sup>
 - Insert first code for defining an image per dish (still outcommented) &nbsp; <sup>*[seq 20210805°0931]*</sup>
 
-version 20210804°0911 — **v1.0.1.c.2 — Sort items after backend order**
+version 20210804°0911 — **v1.0.1.c.2** — Sort items after backend order
  See ./src/Module/ModuleContaoSpeisekarte.php.
  Fixed: No more debug message left open.
 
