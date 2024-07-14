@@ -2,7 +2,7 @@
 
 version 2024-07-14'15:41 — **v1.1.4** — Add 'published' checkbox …
 - Re-integrate v1.1.0 … v1.1.3 on github.com/normai/contao-speisekarte
-- Todo: Re-integrate changes 2022-03-08 by github.com/LinkingYou
+- Still todo: Re-integrate changes 2022-03-08 by github.com/LinkingYou
 
 version 20220805°0013 — **v1.1.3** — Correctly output values
 
