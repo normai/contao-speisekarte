@@ -1,6 +1,6 @@
 ﻿<img src="./20211218o0933.cutlery-69792.v2.x0128y0128.png" align="right" width="128" height="128" alt="Icon 20211218°0933">
 
-# contao-speisekarte &nbsp; <sup><sub><sup>*Version 1.1.3*</sup></sub></sup>
+# contao-speisekarte &nbsp; <sup><sub><sup>*Version 1.1.4*</sup></sub></sup>
 
 ### Synopsis
 
@@ -9,7 +9,7 @@
 
 - **Copyright** : © 2017 Frank Müller
 
-- **Authors** : Frank Müller, Norbert C. Maier
+- **Authors** : Frank Müller, Norbert C. Maier, Cliff Parnitzky
 
 - **License** : LGPL v3 [opensource.org/licenses/lgpl-3.0.html](http://opensource.org/licenses/lgpl-3.0.html)
 
@@ -45,9 +45,8 @@
 
 Find the contao-speisekarte applied e.g. on
 
-- [www.thalermühle.de/restaurant/Speisekarte.html](https://www.xn--thalermhle-geb.de/restaurant/Speisekarte.html)
-
-*Bon appétit!*
+- [www.thalermühle.de/Speisekarte](https://www.thalermühle.de/Speisekarte)
+  <br> (*https://www.xn--thalermhle-geb.de/Speisekarte*)
 
 ### Credits
 

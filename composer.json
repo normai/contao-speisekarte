@@ -24,6 +24,11 @@
             "name":"Cliff Parnitzky",
             "email":"parnitzky@webmarketiere.de",
             "role":"Developer"
+        },
+        {
+            "name":"Norbert C. Maier",
+            "email":"info@trilo.de",
+            "role":"Developer"
         }
     ],
     "autoload": {
