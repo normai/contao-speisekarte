@@ -42,10 +42,7 @@ class ModuleContaoSpeisekarte extends Module {
 
             foreach($kategorienObjekt as $kategorie) {
 
-                $speisenObjekt = ContaoSpeisekarteSpeisenModel::findBy(
-                    'pid',
-                    $kategorie->id
-                );
+                $speisenObjekt = ContaoSpeisekarteSpeisenModel::findPublishedByPid($kategorie->id);
 
                 $speisenliste = array();
                 $zusatstoffliste = array();
@@ -70,48 +67,21 @@ class ModuleContaoSpeisekarte extends Module {
                     // ---------------------------------
 
                     $speise["titel"] = $item->titel;
-                    if ($item->menge) {
-                        $speise["menge"] = $item->menge;
-                    } else {
-                        $speise["menge"] = null;
-                    }
-                    if ($item->preis) {
-                        // Why does the Contao debugger not complain about the missing
-                        //  float cast here, as it does below? [note 20210729°1114]
-                        $speise["preis"] = number_format($item->preis, 2, ',', '.');
-                    } else {
-                        $speise["preis"] = null;
-                    }
+                    
+                    $speise["menge"] = $item->menge;
+                    $speise["menge2"] = $item->menge2;
+                    $speise["menge3"] = $item->menge3;
+
+                    $speise["preis"] = $item->preis;
+                    $speise["preis2"] = $item->preis2;
+                    $speise["preis3"] = $item->preis3;
+                    
                     if ($item->einheit) {
-                        $speise["einheit"] = $item->einheit;
-                    } else {
-                        $speise["einheit"] = null;
+                        $speise["einheit"] = $GLOBALS['TL_LANG']['MSC']['contao_speisekarte']['einheit'][$item->einheit];
                     }
-                    if ($item->menge) {
-                        $speise["menge2"] = $item->menge2;
-                    } else {
-                        $speise["menge2"] = null;
-                    }
-                    if ($item->preis) {
-                        // [Fix 20210729°1111 see ss 20210729°1112] Add '(float)' to avoid Contao debugger
-                        // "Warning: number_format() expects parameter 1 to be float, string given"
-                        $speise["preis2"] = number_format( (float) $item->preis2, 2, ',', '.');
-                    } else {
-                        $speise["preis2"] = null;
-                    }
-                    if ($item->menge) {
-                        $speise["menge3"] = $item->menge3;
-                    } else {
-                        $speise["menge3"] = null;
-                    }
-                    if ($item->preis) {
-                        // [Fix 20210729°1113] Add '(float)', same as in above fix 20210729°1111
-                        $speise["preis3"] = number_format( (float) $item->preis3, 2, ',', '.');
-                    } else {
-                        $speise["preis3"] = null;
-                    }
+                    
                     if ($item->grundpreis && (floatval($item->menge) > 0)) {
-                        $speise['grundpreis'] = number_format($item->preis / $item->menge, 2, ',', '.');
+                        $speise['grundpreis'] = ((float)$item->preis) / ((float)$item->menge);echo "aa";
                     } else {
                         $speise['grundpreis'] = null;
                     }

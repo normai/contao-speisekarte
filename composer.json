@@ -2,8 +2,9 @@
     "name": "linking-you/contao-speisekarte",
     "description": "Speisekarte Extension for Contao Open Source",
     "type": "contao-bundle",
+    "version":"1.1.3",
     "require": {
-        "contao/core-bundle": "^4.3",
+        "contao/core-bundle":"~4.13",
         "contao-community-alliance/composer-plugin":"~2.4 || ~3.0"
     },
     "require-dev": {
@@ -18,6 +19,11 @@
         {
             "name": "Frank Mueller",
             "email": "frank.mueller@linking-you.de"
+        },
+        {
+            "name":"Cliff Parnitzky",
+            "email":"parnitzky@webmarketiere.de",
+            "role":"Developer"
         }
     ],
     "autoload": {

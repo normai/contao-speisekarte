@@ -1,5 +1,14 @@
 ﻿### Changes since forking
 
+version 20220805°0013 — **v1.1.3** — Correctly output values
+
+version 20220802°2345 — **v1.1.2** — Do not make die `dishpic` mandatory
+
+version 20220802°2330 — **v1.1.1** — Fix problems with `varchar(10000)`
+
+version 20220729°0152 — **v1.1.0** — Add a `published` checkboxes
+- Add missing translations
+
 version 20220714°1111 — **v1.0.4** — Tiny cosmetic fix
 
 version 20220713°1911 — **v1.0.3** — Just add logo

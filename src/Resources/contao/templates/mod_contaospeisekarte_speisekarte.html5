@@ -1,28 +1,10 @@
-<!--
-   file        : 20210806°0911
-   version     : 20211020°1551 — v1.0.2 — Format prices
--->
-
 <?php
 $GLOBALS['TL_CSS'][] = 'bundles/contaospeisekarte/speisekarte.scss|static';
-
-// func 20211020°1531
-// summary : Format a price
-// note : The price comes in as of type string
-function fmtpreis($prz) {
-   $fmt = "";
-   if ($prz != 0) {
-      $prz = rtrim($prz, ",0");
-      $fmt = $prz . "&nbsp;&nbsp;&nbsp;€";                             // Make this line optional [todo 20211020°1535]
-   }
-   return $fmt;
-}
-
 ?>
 
 <div class="contao_speisekarte">
 
-    <?php if ($this->headline): ?>
+<?php if ($this->headline): ?>
     <<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
 <?php endif; ?>
 
@@ -34,99 +16,92 @@ function fmtpreis($prz) {
             <?php foreach ($kategorie['speisenliste'] as $speise): ?>
                 <tr>
                     <td class="contao_speisekarte_nummer"><?= $speise["nummer"] ?></td>
-                    <!-- td class="contao_speisekarte_nummer"><?= print_r("***"); print_r($speise); print_r("***"); ?></td --><!-- Debug output [line 20210806°0921] -->
                     <td class="contao_speisekarte_titel">
                         <?= $speise["titel"] ?>
+                       
+
+                       
                         <?php if ($speise["zusatzstoffe"]): ?>
                             <sub><?php echo $speise["zusatzstoffe"]; ?></sub>
                         <?php endif; ?>
                         <?php if ($speise["allergene"]): ?>
                             <!-- sub>Allergene: <?php echo $speise["allergene"]; ?></sub -->
-                            <sub><?php echo $speise["allergene"]; ?></sub><!-- [chg 20210805°0941] -->
+                            <sub><?php echo $speise["allergene"]; ?></sub>
                         <?php endif; ?>
                         <br />
-
+	   
                         <?php if ($speise['beschreibung']) :?>
                         <div class="contao_speisekarte_beschreibung">
                         <?= $speise["beschreibung"] ?>
                         </div>
                         <?php endif; ?>
                     </td>
+
+
                     <td class="contao_speisekarte_menge">
                         <?php if ($speise['menge']): ?>
-                            <?= $speise["menge"] ?>
-                            <?php switch($speise['einheit']) {
-                                case 'Liter' : echo 'l'; break;        // break added [chg 20211020°1521]
-                                default :                              // line added [chg 20211020°1521]
-                            }
-                            ?>
-                            <br />
+                            <?= $speise["menge"] ?> <?= $speise["einheit"] ?><br />
                         <?php endif; ?>
 
                         <?php if ($speise['menge2']): ?>
-                            <?= $speise["menge2"] ?>
-                            <?php switch($speise['einheit']) {
-                                case 'Liter' : echo 'l'; break;        // break added [chg 20211020°1521]
-                                default :                              // line added [chg 20211020°1521]
-                            }
-                            ?>
-                            <br />
+                            <?= $speise["menge2"] ?> <?= $speise["einheit"] ?><br />
                         <?php endif; ?>
 
                         <?php if ($speise['menge3']): ?>
-                            <?= $speise["menge3"] ?>
-                            <?php switch($speise['einheit']) {
-                                case 'Liter' : echo 'l'; break;        // break added [chg 20211020°1521]
-                                default :                              // line added [chg 20211020°1521]
-                            }
-                            ?>
-                            <br />
+                            <?= $speise["menge3"] ?> <?= $speise["einheit"] ?><br />
                         <?php endif; ?>
                     </td>
-                    <td class="contao_speisekarte_preis">
-                        <?php if($speise['preis']): ?>
-                            <?= fmtpreis($speise["preis"]) ?><br />    <!-- Call formatting [chg 20211020°1531] -->
+  
+
+<!--                          number_format 1 Stelle 2 Zweistellig  -->
+                                 
+                            <td class="contao_speisekarte_preis">
+                        <?php if(!empty($speise['preis'])): ?>
+                            <?= number_format((float)$speise["preis"] , 1, ',', '.') ?> <!-- € --><br />
                         <?php endif; ?>
 
-                        <?php if($speise['preis2']): ?>
-                            <?= fmtpreis($speise["preis2"]) ?><br />   <!-- Call formatting [chg 20211020°1531] -->
+                        <?php if(!empty($speise['preis2'])): ?>
+                            <?= number_format((float)$speise["preis2"], 1, ',', '.') ?> <!-- € --><br />
                         <?php endif; ?>
 
-                        <?php if($speise['preis3']): ?>
-                            <?= fmtpreis($speise["preis3"]) ?><br />   <!-- Call formatting [chg 20211020°1531] -->
+                        <?php if(!empty($speise['preis3'])): ?>
+                            <?= number_format((float)$speise["preis3"], 1, ',', '.') ?> <!-- € --><br />
                         <?php endif; ?>
                     </td>
                     <td class="contao_speisekarte_grundpreis">
                         <?php if ($speise['grundpreis']) : ?>
-                            <?= $speise['grundpreis'] ?> €/
-                                <?php switch($speise['einheit']) {
-                                    case 'Liter' : echo 'l'; break;    // break added [chg 20211020°1521]
-                                    default :                          // line added [chg 20211020°1521]
-                                }
-                                ?>
+                            <?= number_format((float)$speise['grundpreis'], 1, ',', '.') ?> <!-- € -->/<?= $speise["einheit"] ?>
                         <?php endif; ?>
                     </td>
-                </tr>
+                </tr> 
+ 
+               
             <?php endforeach; ?>
-
-            <?php if ($kategorie['zusatzstoffliste']) : ?>
+          
+            <?php if ($kategorie['zusatzstoffliste']) : ?>    
+                <tr>          	
+                   <td colspan="5">
+    			<div class="contao_speisekarte_zusatzstoffe">     
+                        <br /> 
+                        <div class="zusatz1"> Zusatzstoffe: 
+                        	<?php echo $kategorie['zusatzstoffliste']; ?> 
+                        </div>
+                </div>       
+                    </td>
+                </tr>     	  	
+            <?php endif; ?>
+ 	           <?php if ($kategorie['allergenliste']) : ?>
                 <tr>
                     <td colspan="5">
-                        <br />Zusatzstoffe:
-                        <?php echo $kategorie['zusatzstoffliste']; ?>
+    			<div class="contao_speisekarte_zusatzstoffe">                        
+                        <div class="zusatz2"> Allergene: 
+                        	<?php echo $kategorie['allergenliste']; ?> 
+                        </div>
+                </div>        
                     </td>
                 </tr>
             <?php endif; ?>
-
-            <?php if ($kategorie['allergenliste']) : ?>
-                <tr>
-                    <td colspan="5">
-                        Allergene:
-                        <?php echo $kategorie['allergenliste']; ?>
-                    </td>
-                </tr>
-            <?php endif; ?>
-
+             
             </tbody>
         </table>
 

@@ -1,6 +1,6 @@
 ﻿<img src="./20211218o0933.cutlery-69792.v2.x0128y0128.png" align="right" width="128" height="128" alt="Icon 20211218°0933">
 
-# contao-speisekarte &nbsp; <sup><sub><sup>*Version 1.0.4*</sup></sub></sup>
+# contao-speisekarte &nbsp; <sup><sub><sup>*Version 1.1.3*</sup></sub></sup>
 
 ### Synopsis
 
